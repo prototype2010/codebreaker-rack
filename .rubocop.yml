@@ -1,0 +1,34 @@
+require:
+  - rubocop-rspec
+  - rubocop-performance
+AllCops:
+  NewCops: enable
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+RSpec/MessageChain:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+
+RSpec/MultipleExpectations:
+  Max: 2
+
+Layout/LineLength:
+  Exclude:
+    - 'src/constants.rb'
+
+
+RSpec/ExampleLength:
+  Exclude:
+    - 'spec/**/*.rb'
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 7
