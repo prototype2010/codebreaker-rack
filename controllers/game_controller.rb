@@ -41,16 +41,17 @@ class Game < BaseController
   end
 
   def make_guess
-    user_code = @request.params['guess']
-    prepared_user_code = user_code.split('').map(&:to_i)
-
-    game.guess(prepared_user_code)
+    game.guess(user_code)
   rescue Codebreaker::Exceptions::DigitsExpectedError,
          Codebreaker::Exceptions::NoMoreAttemptsError,
          Codebreaker::Exceptions::EmptyArrayError,
          Codebreaker::Exceptions::UnableToCompareError,
          Codebreaker::Exceptions::OutOfComparisonRangeError => e
     @errors.push(e.message)
+  end
+
+  def user_code
+    @request.params['guess'].chars.map(&:to_i)
   end
 
   def last_comparison
