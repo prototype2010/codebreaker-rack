@@ -23,4 +23,4 @@ gem 'rack', '~> 2.2'
 
 gem 'rack-test', '~> 1.1'
 
-gem "fasterer", "~> 0.9.0"
+gem 'fasterer', '~> 0.9.0'
