@@ -7,7 +7,7 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 gem 'bundler'
 
 gem 'codebreaker', '~> 0.14.0',
-    git: 'https://x-access-token:49628828c97194f9ad62e0db8e2a661693a9edd4@github.com/prototype2012/codebreaker_gem.git'
+    git: 'https://x-access-token:b18c65c6e1a3199bc6dde85e05fb216dea6c5f92@github.com/prototype2012/codebreaker_gem.git'
 
 gem 'rubocop', '~> 1.11'
 

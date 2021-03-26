@@ -1,5 +1,5 @@
 GIT
-  remote: https://x-access-token:49628828c97194f9ad62e0db8e2a661693a9edd4@github.com/prototype2012/codebreaker_gem.git
+  remote: https://x-access-token:b18c65c6e1a3199bc6dde85e05fb216dea6c5f92@github.com/prototype2012/codebreaker_gem.git
   revision: 39c0db52e2d1d4d44bb5e97cc9f3c78c9c29ff10
   specs:
     codebreaker (0.14.0)
