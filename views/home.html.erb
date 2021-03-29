@@ -27,7 +27,7 @@
             </div>
             <hr class="mb-4">
             <%= render_partial('./views/shared/_errors.html.erb') %>
-            <form method="post" action="/">
+            <form method="post" action="<%=Constants::HOME_PATH %>">
               <div class="form-group">
                 <label for="name" class="lead label">Player's name:</label>
                 <input class="form-control" name="name" id="name" pattern="^[\w\u0400-\u04ff]{3,20}$" placeholder="Your name" autofocus="" required="">
@@ -48,8 +48,8 @@
                 Start the game!
               </button>
               <span class="float-right">
-                <a class="btn btn-warning btn-lg" href="/rules" role="button">Rules</a>
-                <a class="btn btn-success btn-lg" href="/statistics" role="button">Statistics</a>
+                <a class="btn btn-warning btn-lg" href="<%=Constants::RULES_PATH %>" role="button">Rules</a>
+                <a class="btn btn-success btn-lg" href="<%=Constants::STATISTICS_PATH %>" role="button">Statistics</a>
               </span>
             </form>
           </div>

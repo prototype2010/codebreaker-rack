@@ -26,7 +26,7 @@
             <%= render_partial('./views/shared/_info-panel.html.erb') %>
             <hr class="mb-4">
             <%= render_partial('./views/shared/_errors.html.erb') %>
-            <form method="post" id=guess action="/game">
+            <form method="post" id=guess action="<%=Constants::GAME_PATH %>">
               <button type="button" disabled class="btn btn-primary float-right">
                 Secret code:
                 <span class="badge badge-light"><%= secret_code %></span>
@@ -41,7 +41,7 @@
               </div>
               <hr class="mb-4">
             </form>
-            <form method="post" id="hint" action="/game" hidden>
+            <form method="post" id="hint" action="<%=Constants::GAME_PATH %>" hidden>
               <input hidden name='hint'/>
             </form>
             <button type="submit" form="guess" class="btn btn-primary btn-lg">
