@@ -18,5 +18,4 @@ class RedirectHomeUnlessHaveGame < BaseMiddleware
   def game_route?(path)
     [Constants::LOSE_GAME_PATH, Constants::WIN_GAME_PATH, Constants::GAME_PATH].include?(path)
   end
-
 end
