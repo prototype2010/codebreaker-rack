@@ -21,7 +21,7 @@ class Router
   def response
     route = request_route
 
-    return Rack::Response.new('Page not found', 404) unless route || route.respond_to?(request_method)
+    return Rack::Response.new('Page not found', 404) unless route&.respond_to?(request_method)
 
     route.respond(@request)
   end

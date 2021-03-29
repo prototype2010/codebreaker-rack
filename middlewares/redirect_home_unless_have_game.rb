@@ -9,10 +9,14 @@ class RedirectHomeUnlessHaveGame < BaseMiddleware
     game = request.session[:game]
     path = request.path
 
-    return @app.call(env) unless [Constants::LOSE_GAME_PATH, Constants::WIN_GAME_PATH,
-                                  Constants::GAME_PATH].include?(path)
-    return @app.call(env) unless game.nil?
+    return @app.call(env) unless game_route?(path)
+    return @app.call(env) if game
 
     redirect(Constants::HOME_PATH)
   end
+
+  def game_route?(path)
+    [Constants::LOSE_GAME_PATH, Constants::WIN_GAME_PATH, Constants::GAME_PATH].include?(path)
+  end
+
 end
