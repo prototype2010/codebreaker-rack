@@ -20,11 +20,14 @@ class Router
 
   def response
     route = request_route
-    # rubocop:disable Lint/RedundantSafeNavigation
-    return Rack::Response.new('Page not found', 404) unless route&.respond_to?(request_method)
+    return not_found unless route
+    return not_found unless route.respond_to?(request_method)
 
-    # rubocop:enable Lint/RedundantSafeNavigation
     route.respond(@request)
+  end
+
+  def not_found
+    Rack::Response.new('Page not found', 404)
   end
 
   def request_route
