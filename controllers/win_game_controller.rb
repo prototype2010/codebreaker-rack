@@ -1,4 +1,4 @@
-class WinGame < BaseController
+class WinGameController < BaseController
   def get
     render
   end

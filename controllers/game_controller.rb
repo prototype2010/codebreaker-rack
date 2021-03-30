@@ -1,4 +1,4 @@
-class Game < BaseController
+class GameController < BaseController
   def get
     render
   end

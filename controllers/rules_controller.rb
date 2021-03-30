@@ -1,4 +1,4 @@
-class Rules < BaseController
+class RulesController < BaseController
   def get
     render
   end

@@ -1,4 +1,4 @@
-RSpec.describe Game do
+RSpec.describe GameController do
   def app
     Rack::Builder.parse_file('config.ru').first
   end

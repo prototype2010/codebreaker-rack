@@ -1,4 +1,4 @@
-class Statistics < BaseController
+class StatisticsController < BaseController
   def get
     render
   end

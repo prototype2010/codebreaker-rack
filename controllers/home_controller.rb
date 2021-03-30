@@ -1,4 +1,4 @@
-class Home < BaseController
+class HomeController < BaseController
   include Codebreaker::Validation
 
   attr_reader :name, :difficulty
