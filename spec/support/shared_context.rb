@@ -1,9 +1,9 @@
 RSpec.shared_context 'when game active' do
-  let(:code) { [1, 2, 3, 4] }
+  let(:correct_code) { [1, 2, 3, 4] }
   let(:game) do
     Codebreaker::GameProcess.new({ difficulty: :easy,
                                    player_name: 'Boris',
-                                   secret_code: code })
+                                   secret_code: correct_code })
   end
 
   before do
@@ -12,11 +12,11 @@ RSpec.shared_context 'when game active' do
 end
 
 RSpec.shared_context 'when game lose' do
-  let(:code) { [1, 2, 3, 4] }
+  let(:correct_code) { [1, 2, 3, 4] }
   let(:game) do
     Codebreaker::GameProcess.new({ difficulty: :easy,
                                    player_name: 'Boris',
-                                   secret_code: code })
+                                   secret_code: correct_code })
   end
 
   before do
@@ -27,11 +27,11 @@ RSpec.shared_context 'when game lose' do
 end
 
 RSpec.shared_context 'when game win' do
-  let(:code) { [1, 2, 3, 4] }
+  let(:correct_code) { [1, 2, 3, 4] }
   let(:game) do
     Codebreaker::GameProcess.new({ difficulty: :easy,
                                    player_name: 'Boris',
-                                   secret_code: code })
+                                   secret_code: correct_code })
   end
 
   before do

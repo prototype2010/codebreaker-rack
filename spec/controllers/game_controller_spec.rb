@@ -3,17 +3,23 @@ RSpec.describe GameController do
     Rack::Builder.parse_file('config.ru').first
   end
 
+  let(:code_out_of_range) { '8888' }
+  let(:long_code) { '11111' }
+  let(:wrong_code) { '1111' }
+  let(:short_code) { '1' }
+  let(:win_code) { correct_code.join }
+
   include_context 'when game active'
 
   context 'when error' do
     it 'out of range characters' do
-      post(Constants::GAME_PATH, { 'guess' => '8888' })
+      post(Constants::GAME_PATH, { 'guess' => code_out_of_range })
 
       expect(last_response.body).to include('There are characters that are out of comparison range')
     end
 
     it 'too many digits' do
-      post(Constants::GAME_PATH, { 'guess' => '11111' })
+      post(Constants::GAME_PATH, { 'guess' => long_code })
 
       expect(last_response.body).to include('Codes are unable to compare because of different size')
     end
@@ -26,7 +32,7 @@ RSpec.describe GameController do
   end
 
   it 'redirects to win on win' do
-    post(Constants::GAME_PATH, { 'guess' => '1234' })
+    post(Constants::GAME_PATH, { 'guess' => win_code })
 
     expect(last_response).to be_redirect
     expect(last_response.header['Location']).to eq(Constants::WIN_GAME_PATH)
@@ -35,7 +41,7 @@ RSpec.describe GameController do
   it 'redirects to lose on lose' do
     game.instance_variable_set(:@attempts_left, 1)
 
-    post(Constants::GAME_PATH, { 'guess' => '1111' })
+    post(Constants::GAME_PATH, { 'guess' => wrong_code })
 
     expect(last_response).to be_redirect
     expect(last_response.header['Location']).to eq(Constants::LOSE_GAME_PATH)
