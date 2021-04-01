@@ -21,9 +21,7 @@ class GameController < BaseController
   end
 
   def proceed_lose
-    Rack::Response.new do |response|
-      response.redirect(Constants::LOSE_GAME_PATH)
-    end
+    redirect(Constants::LOSE_GAME_PATH)
   end
 
   def proceed_finished_game
@@ -35,9 +33,7 @@ class GameController < BaseController
   def proceed_win
     Codebreaker::ScoreManager.add_score(game.to_h)
 
-    Rack::Response.new do |response|
-      response.redirect(Constants::WIN_GAME_PATH)
-    end
+    redirect(Constants::WIN_GAME_PATH)
   end
 
   def make_guess

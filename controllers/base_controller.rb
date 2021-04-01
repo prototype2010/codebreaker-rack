@@ -23,6 +23,12 @@ class BaseController
 
   protected
 
+  def redirect(path)
+    Rack::Response.new do |response|
+      response.redirect(path)
+    end
+  end
+
   def render(status = 200)
     path = File.expand_path("./views/#{@template_path}")
 
