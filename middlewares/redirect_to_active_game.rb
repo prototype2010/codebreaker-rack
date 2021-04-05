@@ -5,13 +5,11 @@ class RedirectToActiveGame < BaseMiddleware
   end
 
   def call(env)
-    request = Rack::Request.new(env)
-    game = request.session[:game]
-    path = request.path
+    request_params(env)
 
-    return @app.call(env) if game.nil?
-    return @app.call(env) if game.lose? || game.win?
-    return @app.call(env) if path == Constants::GAME_PATH
+    return @app.call(env) if @game.nil?
+    return @app.call(env) if @game.lose? || @game.win?
+    return @app.call(env) if @path == Constants::GAME_PATH
 
     redirect(Constants::GAME_PATH)
   end

@@ -5,17 +5,15 @@ class RedirectHomeUnlessHaveGame < BaseMiddleware
   end
 
   def call(env)
-    request = Rack::Request.new(env)
-    game = request.session[:game]
-    path = request.path
+    request_params(env)
 
-    return @app.call(env) unless game_route?(path)
-    return @app.call(env) if game
+    return @app.call(env) unless game_route?
+    return @app.call(env) if @game
 
     redirect(Constants::HOME_PATH)
   end
 
-  def game_route?(path)
-    [Constants::LOSE_GAME_PATH, Constants::WIN_GAME_PATH, Constants::GAME_PATH].include?(path)
+  def game_route?
+    [Constants::LOSE_GAME_PATH, Constants::WIN_GAME_PATH, Constants::GAME_PATH].include?(@path)
   end
 end
