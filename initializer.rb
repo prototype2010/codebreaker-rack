@@ -10,16 +10,10 @@ I18n.load_path << Dir[File.expand_path("config/locales") + "/*.yml"]
 require_relative './constants'
 require_relative './utils/request_utils'
 require_relative './utils/game_utils'
-require_relative './controllers/base_controller'
-require_relative './controllers/game_controller'
-require_relative './controllers/win_game_controller'
-require_relative './controllers/lose_game_controller'
-require_relative './controllers/home_controller'
-require_relative './controllers/rules_controller'
-require_relative './controllers/statistics_controller'
+
+Dir['./controllers/*.rb'].sort.each { |file| require file }
 
 require_relative './router'
-require_relative './middlewares/base_middleware'
-require_relative './middlewares/redirect_home_unless_have_game'
-require_relative './middlewares/redirect_to_active_game'
-require_relative './middlewares/redirect_to_final_game_page'
+
+Dir['./middlewares/*.rb'].sort.each { |file| require file }
+

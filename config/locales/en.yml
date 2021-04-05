@@ -1,0 +1,3 @@
+en:
+  param_name_not_found: "Param `name` not found"
+  param_name_not_difficulty: "Param `difficulty` not found"
