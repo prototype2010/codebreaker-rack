@@ -14,19 +14,19 @@ RSpec.describe GameController do
     it 'out of range characters' do
       post(Constants::GAME_PATH, { 'guess' => code_out_of_range })
 
-      expect(last_response.body).to include('There are characters that are out of comparison range')
+      expect(last_response.body).to include(I18n.t(:out_of_range_error))
     end
 
     it 'too many digits' do
       post(Constants::GAME_PATH, { 'guess' => long_code })
 
-      expect(last_response.body).to include('Codes are unable to compare because of different size')
+      expect(last_response.body).to include(I18n.t(:unable_to_compare))
     end
 
     it 'empty code' do
       post(Constants::GAME_PATH, { 'guess' => '' })
 
-      expect(last_response.body).to include('Unable to compare empty arrays')
+      expect(last_response.body).to include(I18n.t(:empty_code))
     end
   end
 

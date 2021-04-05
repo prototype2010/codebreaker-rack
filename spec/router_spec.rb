@@ -6,7 +6,7 @@ RSpec.describe Router do
   context 'when no game' do
     it 'index page works well' do
       get(Constants::HOME_PATH)
-      expect(last_response.body).to include('Codebreaker')
+      expect(last_response.body).to include(I18n.t(:app_name_short))
     end
 
     it 'statistics page works well' do
@@ -16,7 +16,7 @@ RSpec.describe Router do
 
     it 'rules page works well' do
       get(Constants::RULES_PATH)
-      expect(last_response.body).to include('Game Rules')
+      expect(last_response.body).to include(I18n.t(:rules))
     end
   end
 end

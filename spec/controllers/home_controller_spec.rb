@@ -15,12 +15,12 @@ RSpec.describe HomeController do
   it 'shows name error' do
     post(Constants::HOME_PATH, { 'name' => 'Bo', 'difficulty' => 'easy' })
 
-    expect(last_response.body).to include('Player name length should be between')
+    expect(last_response.body).to include(I18n.t(:player_name_error))
   end
 
   it 'shows difficulty error' do
     post(Constants::HOME_PATH, { 'name' => 'Boris', 'difficulty' => 'easy22' })
 
-    expect(last_response.body).to include('Difficulty does not exist')
+    expect(last_response.body).to include(I18n.t(:incorrect_difficulty))
   end
 end
