@@ -11,7 +11,7 @@ RSpec.describe Router do
 
     it 'statistics page works well' do
       get(Constants::STATISTICS_PATH)
-      expect(last_response.body).to include('Top of Players:')
+      expect(last_response.body).to include(I18n.t(:top_players))
     end
 
     it 'rules page works well' do

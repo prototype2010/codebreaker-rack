@@ -23,7 +23,7 @@ RSpec.describe RedirectToFinalGamePage do
     it 'new game can be started after win' do
       get(Constants::HOME_PATH)
 
-      expect(last_response.body).to include(I18n(:start_game))
+      expect(last_response.body).to include(I18n.t(:start_game))
     end
   end
 
@@ -47,7 +47,7 @@ RSpec.describe RedirectToFinalGamePage do
     it 'new game can be started after lose' do
       get(Constants::HOME_PATH)
 
-      expect(last_response.body).to include(I18n(:start_game))
+      expect(last_response.body).to include(I18n.t(:start_game))
     end
   end
 end

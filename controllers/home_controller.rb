@@ -27,8 +27,8 @@ class HomeController < BaseController
     @name = @request.params['name']
     @difficulty = @request.params['difficulty'].to_sym
 
-    errors.push(I18n(:param_name_not_found)) unless @name
-    errors.push(I18n(:param_name_not_difficulty)) unless @difficulty
+    errors.push(I18n.t(:param_name_not_found)) unless @name
+    errors.push(I18n.t(:param_name_not_difficulty)) unless @difficulty
 
     validate_player_name(name)
     validate_player_difficulty(difficulty)
