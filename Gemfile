@@ -25,4 +25,4 @@ gem 'rack-test', '~> 1.1'
 
 gem 'fasterer', '~> 0.9.0'
 
-gem "i18n", "~> 1.8"
+gem 'i18n', '~> 1.8'

@@ -5,7 +5,7 @@ require 'codebreaker'
 require 'time'
 require 'i18n'
 
-I18n.load_path << Dir[File.expand_path("config/locales") + "/*.yml"]
+I18n.load_path << Dir["#{File.expand_path('config/locales')}/*.yml"]
 
 require_relative './constants'
 require_relative './utils/request_utils'
@@ -16,4 +16,3 @@ Dir['./controllers/*.rb'].sort.each { |file| require file }
 require_relative './router'
 
 Dir['./middlewares/*.rb'].sort.each { |file| require file }
-
