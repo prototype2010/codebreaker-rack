@@ -4,10 +4,9 @@ RSpec.describe GameController do
   end
 
   let(:code_out_of_range) { '8888' }
-  let(:long_code) { '11111' }
-  let(:wrong_code) { '1111' }
-  let(:short_code) { '1' }
-  let(:win_code) { correct_code.join }
+  let(:long_code) { '1' * (Codebreaker::Constants::DIGITS_NUMBER + 1) }
+  let(:wrong_code) { '1' * Codebreaker::Constants::DIGITS_NUMBER }
+  let(:short_code) { '1' * (Codebreaker::Constants::DIGITS_NUMBER - 1) }
 
   include_context 'when game active'
 
@@ -32,7 +31,7 @@ RSpec.describe GameController do
   end
 
   it 'redirects to win on win' do
-    post(Constants::GAME_PATH, { 'guess' => win_code })
+    post(Constants::GAME_PATH, { 'guess' => correct_code })
 
     expect(last_response).to be_redirect
     expect(last_response.header['Location']).to eq(Constants::WIN_GAME_PATH)
