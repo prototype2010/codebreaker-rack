@@ -15,11 +15,10 @@
           <div class="col-12 col-md-6">
             <div class="row">
               <div class="col-md-auto">
-                <h1 class="text-white title">Codebreaker 2018</h1>
+                <h1 class="text-white title"><%= I18n.t(:app_name) %></h1>
               </div>
             </div>
             <p class="lead text-white-70">
-
               <%= I18n.t(:greeting, name: player_name) %>
               <%= I18n.t(:call_to_action) %>
             </p>
@@ -29,7 +28,7 @@
             <%= render_partial('./views/shared/_errors.html.erb') %>
             <form method="post" id=guess action="<%=Constants::GAME_PATH %>">
               <button type="button" disabled class="btn btn-primary float-right">
-                Secret code:
+                <%= I18n.t(:secret_code) %>
                 <span class="badge badge-light"><%= secret_code %></span>
               </button>
               <div class="form-group">
@@ -46,10 +45,10 @@
               <input hidden name='hint'/>
             </form>
             <button type="submit" form="guess" class="btn btn-primary btn-lg">
-                Submit
+              <%= I18n.t(:submit) %>
             </button>
             <button type="submit" <%= hints.length.zero? && 'disabled' %>  form="hint" class="btn btn-warning btn-lg float-right" role="button">
-                Show hint!
+                <%= I18n.t(:show_hint) %>
                 <% hints_shown.each do |hint| %>
                   <%="<span class='badge badge-light'>#{hint}</span>"%>
                 <%end%>
