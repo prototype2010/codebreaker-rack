@@ -1,9 +1,4 @@
 class RedirectToActiveGame < BaseMiddleware
-  def initialize(app)
-    super()
-    @app = app
-  end
-
   def call(env)
     request_params(env)
 

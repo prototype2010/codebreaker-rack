@@ -20,7 +20,7 @@ module GameUtils
   end
 
   def player_name
-    game[:player_name]
+    game.player_name
   end
 
   def attempts_info

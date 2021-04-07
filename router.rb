@@ -20,8 +20,7 @@ class Router
 
   def response
     route = request_route
-    return not_found unless route
-    return not_found unless route.respond_to?(request_method)
+    return not_found unless route || route.respond_to?(request_method)
 
     route.respond(@request)
   end

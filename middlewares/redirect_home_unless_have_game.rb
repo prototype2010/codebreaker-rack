@@ -1,14 +1,7 @@
 class RedirectHomeUnlessHaveGame < BaseMiddleware
-  def initialize(app)
-    super()
-    @app = app
-  end
-
   def call(env)
     request_params(env)
-
-    return @app.call(env) unless game_route?
-    return @app.call(env) if @game
+    return @app.call(env) if !game_route? || @game
 
     redirect(Constants::HOME_PATH)
   end

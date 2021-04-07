@@ -1,4 +1,8 @@
 class BaseMiddleware
+  def initialize(app)
+    @app = app
+  end
+
   def redirect(path)
     [301, { 'Location' => path }, ['']]
   end

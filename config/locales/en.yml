@@ -17,3 +17,5 @@ en:
   empty_code: "Unable to compare empty arrays"
   player_name_error: "Player name length should be between"
   incorrect_difficulty: "Difficulty does not exist"
+  call_to_action: "Try to guess 4-digit number, that consists of numbers in a range from 1 to 6."
+  greeting: "Hello, #{name}!"
