@@ -1,19 +1,19 @@
 <div class="row">
   <div class="col button">
     <button type="button" class="btn btn-primary" disabled>
-      Level:
+      <%= I18n.t(:level) %>
       <span class="badge badge-light">
                    <%= difficulty %>
                 </span>
     </button>
     <button type="button" class="btn btn-primary" disabled>
-      Attempts Left:
+      <%= I18n.t(:attempts_left) %>
       <span class="badge badge-light">
                   <%= "#{attempts_left} / #{attempts_total}" %>
                 </span>
     </button>
     <button type="button" class="btn btn-primary" disabled>
-      Hints Left:
+      <%= I18n.t(:hints_left) %>
       <span class="badge badge-light">
                   <%= "#{hints_left} / #{hints_total}" %>
                 </span>

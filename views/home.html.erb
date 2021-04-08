@@ -30,7 +30,7 @@
             <form method="post" action="<%=Constants::HOME_PATH %>">
               <div class="form-group">
                 <label for="name" class="lead label"><%= I18n.t(:player_name) %></label>
-                <input class="form-control" name="name" id="name" pattern="^[\w\u0400-\u04ff]{3,20}$" placeholder="Your name" autofocus="" required="">
+                <input class="form-control" name="name" id="name" pattern="^[\w\u0400-\u04ff]{3,20}$" placeholder="<%= I18n.t(:your_name) %>" autofocus="" required="">
               </div>
               <div class="form-group">
                 <label for="level" class="lead label"><%= I18n.t(:game_difficulty) %></label>
