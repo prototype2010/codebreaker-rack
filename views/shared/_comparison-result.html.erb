@@ -1,0 +1,9 @@
+<% Array.new(4 - last_comparison.length) {'x'}.prepend(*last_comparison.split('')).each do |sign| %>
+  <%=
+    case sign
+    when '+' then '<button type="button" class="btn btn-success marks" disabled>+</button>'
+    when '-' then '<button type="button" class="btn btn-primary marks" disabled>-</button>'
+    else '<button type="button" class="btn btn-danger marks" disabled>x</button>'
+    end
+  %>
+<% end %>

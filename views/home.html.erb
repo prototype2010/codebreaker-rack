@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="mdl-js">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="assets/favicon.ico" rel="icon">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <title><%= I18n.t(:app_name) %></title>
+  </head>
+  <body>
+    <section id="introduction">
+      <div class="container">
+        <div class="row fill-viewport align-items-center justify-content-center">
+          <div class="col-12 col-md-6">
+            <div class="row">
+              <div class="col-md-auto">
+                <h1 class="text-white title"><%= I18n.t(:app_name) %></h1>
+              </div>
+            </div>
+            <div class="row">
+              <p class="lead text-white-70">
+                <%= I18n.t(:call_to_action) %>
+              </p>
+            </div>
+            <hr class="mb-4">
+            <%= render_partial('./views/shared/_errors.html.erb') %>
+            <form method="post" action="<%=Constants::HOME_PATH %>">
+              <div class="form-group">
+                <label for="name" class="lead label"><%= I18n.t(:player_name) %></label>
+                <input class="form-control" name="name" id="name" pattern="^[\w\u0400-\u04ff]{3,20}$" placeholder="<%= I18n.t(:your_name) %>" autofocus="" required="">
+              </div>
+              <div class="form-group">
+                <label for="level" class="lead label"><%= I18n.t(:game_difficulty) %></label>
+                <select class="custom-select" name="difficulty" required="">
+                  <option value=""><%= I18n.t(:choose_game_level) %></option>
+                  <option value="easy">  <%= I18n.t(:easy) %></option>
+                  <option value="medium">  <%= I18n.t(:medium) %></option>
+                  <option value="hell">  <%= I18n.t(:hell) %></option>
+                </select>
+              </div>
+
+              <hr class="mb-4">
+
+              <button type="submit" class="btn btn-primary btn-lg">
+                <%= I18n.t(:start_game) %>
+              </button>
+              <span class="float-right">
+                <a class="btn btn-warning btn-lg" href="<%=Constants::RULES_PATH %>" role="button"><%= I18n.t(:rules_link) %></a>
+                <a class="btn btn-success btn-lg" href="<%=Constants::STATISTICS_PATH %>" role="button"><%= I18n.t(:statistics) %></a>
+              </span>
+            </form>
+          </div>
+        </div>
+       </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col button">
+    <button type="button" class="btn btn-primary" disabled>
+      <%= I18n.t(:level) %>
+      <span class="badge badge-light">
+                   <%= difficulty %>
+                </span>
+    </button>
+    <button type="button" class="btn btn-primary" disabled>
+      <%= I18n.t(:attempts_left) %>
+      <span class="badge badge-light">
+                  <%= "#{attempts_left} / #{attempts_total}" %>
+                </span>
+    </button>
+    <button type="button" class="btn btn-primary" disabled>
+      <%= I18n.t(:hints_left) %>
+      <span class="badge badge-light">
+                  <%= "#{hints_left} / #{hints_total}" %>
+                </span>
+    </button>
+  </div>
+</div>

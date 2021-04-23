@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" class="mdl-js">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="assets/favicon.ico" rel="icon">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <title><%= I18n.t(:app_name) %></title>
+  <body>
+    <section id="introduction">
+      <div class="container">
+        <div class="row fill-viewport align-items-center justify-content-center">
+          <div class="col-12 col-md-6">
+            <div class="row">
+              <div class="col-md-auto">
+                <h1 class="text-white title"><%= I18n.t(:app_name) %></h1>
+              </div>
+            </div>
+            <p class="lead text-white-70">
+              <%= I18n.t(:greeting, name: player_name) %>
+              <%= I18n.t(:call_to_action) %>
+            </p>
+            <hr class="mb-4">
+            <%= render_partial('./views/shared/_info-panel.html.erb') %>
+            <hr class="mb-4">
+            <%= render_partial('./views/shared/_errors.html.erb') %>
+            <form method="post" id=guess action="<%=Constants::GAME_PATH %>">
+              <button type="button" disabled class="btn btn-primary float-right">
+                <%= I18n.t(:secret_code) %>
+                <span class="badge badge-light"><%= secret_code %></span>
+              </button>
+              <div class="form-group">
+                <input class="form-control guess_input" name="guess" pattern="^[1-6]{4}$" placeholder="1234" required="" autocomplete="off">
+              </div>
+              <div class="form-group guess_markers_list">
+                <div id="guess_marker">
+                  <%= render_partial('./views/shared/_comparison-result.html.erb') %>
+                </div>
+              </div>
+              <hr class="mb-4">
+            </form>
+            <form method="post" id="hint" action="<%=Constants::GAME_PATH %>" hidden>
+              <input hidden name='hint'/>
+            </form>
+            <button type="submit" form="guess" class="btn btn-primary btn-lg">
+              <%= I18n.t(:submit) %>
+            </button>
+            <button type="submit" <%= hints.length.zero? && 'disabled' %>  form="hint" class="btn btn-warning btn-lg float-right" role="button">
+                <%= I18n.t(:show_hint) %>
+                <% hints_shown.each do |hint| %>
+                  <%="<span class='badge badge-light'>#{hint}</span>"%>
+                <%end%>
+            </button>
+          </div>
+        </div>
+       </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="mdl-js">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="assets/favicon.ico" rel="icon">
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/css/styles.css" rel="stylesheet">
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<title><%= I18n.t(:app_name) %></title>
+
+<body>
+  <section id="introduction">
+    <div class="container">
+      <div class="row fill-viewport align-items-center justify-content-center">
+        <div class="col-12 col-md-6">
+          <div class="row">
+            <div class="col-md-auto">
+              <h1 class="text-white title inline-block">Codebreaker 2018</h1>
+            </div>
+          </div>
+          <%= render_partial('./views/shared/_info-panel.html.erb') %>
+          <hr class="mb-4">
+          <div class="row">
+            <div class="text-center">
+              <div class="text-center">
+                <h3 class="text-white">
+                  <%= I18n.t(:congratulations, name: player_name) %>
+                </h3>
+              </div>
+              <img src="assets/images/won.gif" class="img-fluid" alt="You won the game!">
+            </div>
+          </div>
+          <hr class="mb-4">
+          <a class="btn btn-primary btn-lg" href="<%=Constants::HOME_PATH %>" role="button">
+            <%= I18n.t(:play_again) %>
+          </a>
+          <a class="btn btn-success btn-lg float-right" href="<%=Constants::STATISTICS_PATH %>" role="button">
+            <%= I18n.t(:statistics) %>
+          </a>
+        </div>
+       </div>
+       </div>
+    </section>
+  </body>
+</html>
